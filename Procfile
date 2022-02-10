@@ -1,1 +1,1 @@
-worker: node target/bin/worker
+worker: node index.js
