@@ -37,8 +37,10 @@ function getNumber() {
     lostC = 0;
   }
   bets++;
-  console.clear();
-  console.log("Lost Streak: " + maxLostC + "\nBets: " + bets);
+  if (bets % 1000 == 0) {
+    console.clear();
+    console.log("Lost Streak: " + maxLostC + "\nBets: " + bets);
+  }
   if (betting) {
     setTimeout(getNumber, 1);
   }
