@@ -36,15 +36,18 @@ function getNumber() {
   } else {
     if (lostC > maxLostC) {
       maxLostC = lostC;
-      if (lostC >= lostArr[0]) {
-        lostArr.unshift(lostC);
+    }
+    for (let j = 0; j < lostArr.length; j++) {
+      if (lostC >= lostArr[j]) {
+        lostArr.splice(j, 0, lostC);
         lostArr.pop();
+        break;
       }
     }
     lostC = 0;
   }
   bets++;
-  if (bets % 2000 === 0) {
+  if (bets % 5000 === 0) {
     console.clear();
     console.log(
       "Lost Streak:   " +
