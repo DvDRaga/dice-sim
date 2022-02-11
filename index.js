@@ -4,6 +4,7 @@ var lostC = 0;
 var maxLostC = 0;
 var bets = 0;
 var betting = true;
+var lostArr = new Array(20).fill(0);
 
 function getNumber() {
   const availableChars =
@@ -33,13 +34,26 @@ function getNumber() {
   if (number < 91) {
     lostC++;
   } else {
-    if (lostC > maxLostC) maxLostC = lostC;
+    if (lostC > maxLostC) {
+      maxLostC = lostC;
+      if (lostC >= lostArr[0]) {
+        lostArr.unshift(lostC);
+        lostArr.pop();
+      }
+    }
     lostC = 0;
   }
   bets++;
-  if (bets % 1000 == 0) {
+  if (bets % 1000 === 0) {
     console.clear();
-    console.log("Lost Streak: " + maxLostC + "\nBets: " + bets);
+    console.log(
+      "Lost Streak:   " +
+        maxLostC +
+        "\nBets:          " +
+        bets +
+        "\nWorst Streaks: " +
+        lostArr
+    );
   }
   if (betting) {
     setTimeout(getNumber, 1);
@@ -47,7 +61,3 @@ function getNumber() {
 }
 
 getNumber();
-
-/*for (var i = 0; i < 10000; i++) {
-  getNumber();
-}*/
