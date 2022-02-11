@@ -44,7 +44,7 @@ function getNumber() {
     lostC = 0;
   }
   bets++;
-  if (bets % 1000 === 0) {
+  if (bets % 2000 === 0) {
     console.clear();
     console.log(
       "Lost Streak:   " +
