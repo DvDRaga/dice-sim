@@ -71,4 +71,4 @@ function shutdown() {
   betting = false
 }
 
-process.on('SIGTERM', shutdown())
+process.on('SIGTERM', shutdown)
