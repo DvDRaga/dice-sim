@@ -62,6 +62,7 @@ function getNumber() {
     setTimeout(getNumber, 1);
   } else {
     console.log("Stopped")
+  }
 }
 
 getNumber();
