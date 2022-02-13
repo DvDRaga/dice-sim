@@ -60,7 +60,16 @@ function getNumber() {
   }
   if (betting) {
     setTimeout(getNumber, 1);
-  }
+  } else {
+    console.log("Stopped")
 }
 
 getNumber();
+
+const http = require('http');
+
+process.on('SIGTERM', shutdown())
+
+function shutdown() {
+  betting = false
+}
