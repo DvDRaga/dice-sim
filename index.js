@@ -67,10 +67,8 @@ function getNumber() {
 
 getNumber();
 
-const http = require('http');
-
-process.on('SIGTERM', shutdown())
-
 function shutdown() {
   betting = false
 }
+
+process.on('SIGTERM', shutdown())
